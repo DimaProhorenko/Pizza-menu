@@ -4,23 +4,23 @@ import data from '../data';
 
 const Menu = () => {
 	return (
-		<div className="menu">
+		<main className="menu">
 			<h2>Our Menu</h2>
-			<div className="pizzas">
-				{data.map((el) => {
-					return (
-						<Pizza
-							key={el.id}
-							name={el.name}
-							ingredients={el.ingredients}
-							imageSrc={el.photoName}
-							price={el.price}
-							soldOut={el.soldOut}
-						/>
-					);
-				})}
-			</div>
-		</div>
+			{data.length > 0 && (
+				<>
+					<p>
+						Authentic Italian cuisine. 6 creative dishes to choose
+						from. All from our stone oven, all organic, all
+						delicious.
+					</p>
+					<ul className="pizzas">
+						{data.map((el) => {
+							return <Pizza key={el.id} pizzaObj={el} />;
+						})}
+					</ul>
+				</>
+			)}
+		</main>
 	);
 };
 
